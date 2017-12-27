@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class AppService {
     constructor(private http: Http) { }
-    baseUrl: string = "http://10.100.8.58";
+    baseUrl: string = "https://webpagecrawler.herokuapp.com/";
     // https://webpagecrawler.herokuapp.com/
     preloader: boolean = false;
     error: boolean = false;

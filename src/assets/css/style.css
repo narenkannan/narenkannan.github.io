@@ -58,6 +58,14 @@ div.search-field input:-moz-placeholder {
     margin-bottom: 15px;
 }
 
+textarea.textarea {
+    width: 100%;
+    max-width: 75%;
+    margin: 0 auto;
+    display: block;
+    min-height: 250px;
+}
+
 .github {
     position: absolute;
     right: 0;
