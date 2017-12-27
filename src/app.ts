@@ -14,8 +14,10 @@ import { HttpModule, Response } from '@angular/http';
 })
 export class App {
 
-  searchText: string = '';
-  jsonData: any;
+  searchText: string = 'http://sample.com';
+  jsonData: {any};
+
+  objObject = Object;
 
   url1: any;
 
@@ -34,11 +36,21 @@ export class App {
 
   }
   loadJsonData() {
-
     if (!this.searchText.toLowerCase().startsWith("http"))
       this.searchText = "http://" + this.searchText
-
-    this.jsonData = this.appService.getJson(this.searchText);
+    let parent = this;
+    this.appService.getJson(this.searchText).toPromise().then(function (response) {
+      parent.appService.preloader = false;
+      // console.log(response.json());
+      parent.jsonData = response.json();
+      // return response.json()
+    }).catch(function (ex) {
+      console.log(ex);
+      parent.appService.errMsg = ex;
+      parent.appService.preloader = false;
+      parent.appService.error = true;
+      parent.jsonData = undefined;
+    });
   }
 
 

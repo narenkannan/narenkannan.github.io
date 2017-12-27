@@ -1,4 +1,5 @@
 <form class="col-xs-12 no-padding heightmax">
+    <img class="text-center github" width="180px" src="/src/assets/images/github.png" />
     <div class="col-xs-12 webcrawler heightmax alignitems-center {{searchlist}}">
         <div class="header col-xs-12">
             <div class="header-inner col-xs-12">
@@ -11,7 +12,7 @@
                         <div class="input-group">
                             <input type="text" #textvalue class="form-control" autocomplete="off" [(ngModel)]="searchText" placeholder="Enter/Drag url here!" id="url" required pattern="https?://.+" name="url" #url="ngModel" autofocus/>
                             <span class="input-group-addon">
-                            <i class="material-icons">&#xE868;</i>
+                            <i class="material-icons">&#xE8B6;</i>
                     </span>
                             <div *ngIf="url.errors && (url.dirty || url.touched)" class="alert alert-danger">
                                 <div [hidden]="!url.errors.required">
@@ -24,25 +25,48 @@
                         </div>
                     </div>
                     <div class="actions-btn col-xs-12 no-padding">
-                         <button [disabled]="!url.valid" class="btn btn-default" (click)="search(textvalue.value)">Go</button>
+                        <button [disabled]="!url.valid" class="btn btn-default" (click)="search(textvalue.value)">Go</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="content-wrapper col-xs-12 no-padding">
             <div *ngIf="appService.preloader" class="col-xs-12 jsonviewer heightmax alignitems-center justify-center">
-                <div class="cssload-container">
+                <!-- <div class="cssload-container">
                     <div class="cssload-speeding-wheel"></div>
+                </div> -->
+                <div class="loader">
+                    <div class="loader-inner pacman">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
             </div>
-            <div *ngIf="appService.error" class="col-xs-12 jsonviewer heightmax alignitems-center justify-center">
+
+            <div *ngIf="appService.error" class="col-xs-12 jsonviewer  alignitems-center heightmax justify-center">
                 <div class="alerts text-center alignitems-center justify-center">
                     <i class="material-icons flatred">&#xE001;</i>
                     <span class="flatred">error</span>
                 </div>
+                <div class="col-xs-12 no-padding">
+                    <textarea class="textarea">{{appService.errMsg | json}}</textarea>
+                </div>
+
             </div>
             <div *ngIf="!appService.preloader && !appService.error" class="col-xs-12 jsonviewer overflowy heightmax">
-                <pre>{{jsonData | json}}</pre>
+                <ng-container *ngIf="jsonData">
+                    <ul *ngFor="let item of objObject.keys(jsonData)">
+                        <h4> <a href="{{item}}">{{item}}</a></h4>
+                        <ng-container *ngFor="let link of jsonData[item]">
+                            <li *ngIf="link !=''" class="col-xs-12">
+                                <a href="{{link}}">{{link}}</a></li>
+                        </ng-container>
+                    </ul>
+                </ng-container>
+
             </div>
         </div>
     </div>
