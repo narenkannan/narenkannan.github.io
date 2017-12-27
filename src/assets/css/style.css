@@ -56,6 +56,10 @@ div.search-field input:-moz-placeholder {
     padding-right: 0px !important;
 }
 
+.display-flex {
+    display: flex;
+}
+
 .alignitems-center {
     align-items: center;
 }
