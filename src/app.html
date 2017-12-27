@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-xs-12 search-field">
                         <div class="input-group">
-                            <input type="text" #textvalue class="form-control" [(ngModel)]="searchText" (keyup.enter)="search(textvalue.value)" placeholder="Enter/Drag url here!" id="url" required pattern="https?://.+" name="url" #url="ngModel" autofocus/>
+                            <input type="text" #textvalue class="form-control" autocomplete="off" [(ngModel)]="searchText" placeholder="Enter/Drag url here!" id="url" required pattern="https?://.+" name="url" #url="ngModel" autofocus/>
                             <span class="input-group-addon">
                             <i class="material-icons">&#xE868;</i>
                     </span>
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="actions-btn col-xs-12 no-padding">
-                        <button class="btn btn-default">Go</button>
+                         <button [disabled]="!url.valid" class="btn btn-default" (click)="search(textvalue.value)">Go</button>
                     </div>
                 </div>
             </div>
