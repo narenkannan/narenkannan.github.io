@@ -1,0 +1,38 @@
+{
+    "name": "liteserver",
+    "version": "1.0.0",
+    "description": "menu_design",
+    "main": "config.js",
+    "scripts": {
+        "test": "lite-server"
+    },
+    "dependencies": {
+        "@angular/common": "4.4.6",
+        "@angular/compiler": "4.4.6",
+        "@angular/compiler-cli": "4.4.6",
+        "@angular/core": "4.4.6",
+
+        "@angular/forms": "4.4.6",
+        "@angular/http": " 4.4.6",
+        "@angular/platform-browser": "4.4.6",
+        "@angular/platform-browser-dynamic": "4.4.6",
+        "@angular/router": "4.4.6",
+        "bootstrap": "3.3.7",
+
+        "angular2-prettyjson": "2.0.6",
+        "core-js": "2.4.1",
+        "events": "1.1.1",
+        "eventsource": "1.0.4",
+        "hammerjs": "2.0.8",
+        "jquery": "3.1.1",
+
+        "rxjs": "5.4.3",
+        "systemjs": "0.19.40",
+        "zone.js": "0.8.4"
+    },
+    "devDependencies": {
+        "typescript": "2.2.2"
+    },
+    "author": "",
+    "license": "ISC"
+}
