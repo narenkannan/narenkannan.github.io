@@ -32,29 +32,31 @@
         </div>
         <div class="content-wrapper col-xs-12 no-padding">
             <div *ngIf="appService.preloader" class="col-xs-12 jsonviewer heightmax alignitems-center justify-center">
-                <!-- <div class="cssload-container">
+                <div class="center-auto absolute">
+                    <!-- <div class="cssload-container">
                     <div class="cssload-speeding-wheel"></div>
                 </div> -->
-                <div class="loader">
-                    <div class="loader-inner pacman">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <div class="loader">
+                        <div class="loader-inner pacman">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
                     </div>
                 </div>
             </div>
-
             <div *ngIf="appService.error" class="col-xs-12 jsonviewer  alignitems-center heightmax justify-center">
-                <div class="alerts text-center alignitems-center justify-center">
-                    <i class="material-icons flatred">&#xE001;</i>
-                    <span class="flatred">error</span>
+                <div class="center-auto">
+                    <div class="alerts text-center alignitems-center justify-center">
+                        <i class="material-icons flatred">&#xE001;</i>
+                        <span class="flatred">error</span>
+                    </div>
+                    <div class="col-xs-12 no-padding">
+                        <textarea class="textarea">{{appService.errMsg | json}}</textarea>
+                    </div>
                 </div>
-                <div class="col-xs-12 no-padding">
-                    <textarea class="textarea">{{appService.errMsg | json}}</textarea>
-                </div>
-
             </div>
             <div *ngIf="!appService.preloader && !appService.error" class="col-xs-12 jsonviewer overflowy heightmax">
                 <ng-container *ngIf="jsonData">
